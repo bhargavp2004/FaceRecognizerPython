@@ -33,12 +33,11 @@ def findEncodings(request, imagesList):
     eList = []
     for img in imagesList:
         rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        
         encode = face_recognition.face_encodings(rgb_img)[0]
         eList.append(encode)
     return eList
 
-def main(request):
+def saveEncodings(request):
     imageDirectoryPath = 'D:/B.TECH/6TH SEMESTER/Project/FaceRecognizerPython/Images'
     imagesList = loadImages(request, imageDirectoryPath)
     encodeList = findEncodings(request, imagesList)
